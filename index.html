@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you miss me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Do you miss me?</h1>
+        <button onclick="chooseOption('yes')">Yes</button>
+        <button onclick="chooseOption('no')">No</button>
+    </div>
+
+    <script>
+        function chooseOption(option) {
+            const contentDiv = document.getElementById('content');
+
+            if (option === 'yes') {
+                contentDiv.innerHTML = `
+                    <h1>I miss you too, I love you!</h1>
+                    <button onclick="reset()">Back to Start</button>
+                `;
+            } else if (option === 'no') {
+                contentDiv.innerHTML = `
+                    <h1>Why?</h1>
+                    <button onclick="chooseOption('justkidding')">Just kidding, I miss you</button>
+                    <button onclick="chooseOption('okay')">I hate you</button>
+                `;
+            } else if (option === 'justkidding') {
+                contentDiv.innerHTML = `
+                    <h1>I miss you too, I love you!</h1>
+                    <button onclick="reset()">Back to Start</button>
+                `;
+            } else if (option === 'okay') {
+                contentDiv.innerHTML = `
+                    <h1>Oh okay:(</h1>
+                    <button onclick="reset()">Back to Start</button>
+                `;
+            }
+        }
+
+        function reset() {
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = `
+                <h1>Do you miss me?</h1>
+                <button onclick="chooseOption('yes')">Yes</button>
+                <button onclick="chooseOption('no')">No</button>
+            `;
+        }
+    </script>
+</body>
+</html>
